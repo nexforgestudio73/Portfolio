@@ -235,8 +235,14 @@ a {
   color: var(--muted);
 }
 
+.hero-copy p,
+.section-head p,
+.contact-lead,
+.project-page-copy p {
+  max-width: 65ch;
+}
+
 .hero-copy p {
-  max-width: 710px;
   font-size: 1.08rem;
 }
 
@@ -380,7 +386,7 @@ section {
 
 .section-head h2,
 .contact-shell h2 {
-  font-size: clamp(2rem, 4vw, 3.3rem);
+  font-size: clamp(1.9rem, 5vw, 3.3rem);
   line-height: 1;
   letter-spacing: -0.05em;
   margin: 16px 0 14px;
@@ -391,6 +397,11 @@ section {
 .work-grid {
   display: grid;
   gap: 22px;
+}
+
+.services-grid,
+.work-grid {
+  align-items: stretch;
 }
 
 .team-grid {
@@ -413,6 +424,12 @@ section {
   min-height: 760px;
 }
 
+.service-card,
+.project-card {
+  padding: 24px;
+  height: 100%;
+}
+
 .member-top {
   display: flex;
   align-items: flex-start;
@@ -420,7 +437,10 @@ section {
   margin-bottom: 18px;
 }
 
-.member-heading {
+.member-heading,
+.contact-card,
+.project-card,
+.service-card {
   min-width: 0;
 }
 
@@ -443,6 +463,13 @@ section {
   color: var(--cyan);
   font-size: 0.88rem;
   margin-bottom: 6px;
+}
+
+.member-card h3,
+.contact-card strong,
+.project-card h3,
+.service-card h3 {
+  overflow-wrap: anywhere;
 }
 
 .member-card h3,
@@ -498,11 +525,6 @@ section {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
-.service-card,
-.project-card {
-  padding: 24px;
-}
-
 .project-badge {
   color: #06111b;
   background: linear-gradient(135deg, var(--cyan), var(--blue));
@@ -551,7 +573,7 @@ section {
 }
 
 .mobile-gallery {
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
 }
 
 .phone-frame {
@@ -599,7 +621,7 @@ section {
 }
 
 .website-gallery {
-  grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
 }
 
 .website-shot {
@@ -673,7 +695,7 @@ section {
 }
 
 .contact-intro h2 {
-  font-size: clamp(2.4rem, 5vw, 4.6rem);
+  font-size: clamp(2rem, 6vw, 4.6rem);
   line-height: 0.98;
   letter-spacing: -0.06em;
   margin: 18px 0 18px;
@@ -804,6 +826,35 @@ section {
   .hero-visual {
     min-height: 420px;
   }
+}
+
+@media (max-width: 900px) {
+  .nav-wrap {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 16px 0;
+  }
+
+  .nav {
+    width: 100%;
+    gap: 14px;
+    justify-content: flex-start;
+  }
+
+  .hero-grid,
+  .services-grid,
+  .team-grid,
+  .work-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-visual {
+    min-height: auto;
+  }
+
+  .hero-panel {
+    padding: 24px;
+  }
 
   .website-gallery {
     grid-template-columns: 1fr;
@@ -812,11 +863,29 @@ section {
   .mobile-gallery {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  section {
+    padding: 34px 0 20px;
+  }
+
+  .hero {
+    padding: 56px 0 34px;
+  }
+
+  .contact-shell,
+  .member-card,
+  .project-card,
+  .service-card {
+    padding: 24px;
+  }
+
+  .hero-actions .btn {
+    min-width: 200px;
+  }
 }
 
 @media (max-width: 760px) {
   .nav-wrap {
-    padding: 16px 0;
     align-items: flex-start;
     flex-direction: column;
   }
@@ -856,7 +925,10 @@ section {
     font-size: clamp(2.5rem, 13vw, 4rem);
   }
 
-  .hero-actions .btn {
+  .hero-actions .btn,
+  .project-actions .btn,
+  .project-page-actions .btn {
+    width: 100%;
     min-width: 100%;
   }
 
@@ -924,5 +996,15 @@ section {
   body::before {
     background-size: 42px 42px;
     opacity: 0.22;
+  }
+}
+
+@media (max-width: 600px) {
+  .mobile-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .phone-frame {
+    max-width: 240px;
   }
 }
